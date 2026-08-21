@@ -17,3 +17,7 @@ m_row <- matrix(1:4, nrow = 2, byrow = TRUE)
 m_row 
 
 t(m_row)
+
+data(mpg)
+
+glimpse(mpg)
