@@ -24,3 +24,9 @@ glimpse(mpg)
 
 ggplot(mpg, aes(x = hwy)) +
     geom_histogram()
+
+grade <- function(x) {
+    LETTERS[min(4,11 - ceiling(x/10))]
+}
+
+ m_row
