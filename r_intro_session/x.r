@@ -21,3 +21,6 @@ t(m_row)
 data(mpg)
 
 glimpse(mpg)
+
+ggplot(mpg, aes(x = hwy)) +
+    geom_histogram()
