@@ -14,9 +14,9 @@ my_solve <- function(A, b) {
 
         # Reformat to match spec from problem set
         if (grepl("exactly singular", msg)) {
-
             print("It does not have a unique solution")
-
+        } else {
+            stop(msg)
         }
 
     })
