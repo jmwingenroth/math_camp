@@ -106,21 +106,19 @@ Therefore, the matrix is positive definite and the function is strictly convex.
 \subsection*{Q4}
 
 \subsubsection*{Symmetry}
-By the identities 
+
+To show that $M_{\X}$ is symmetric,
 \begin{align*}
-    \mathcal M_{\X}&=\mathcal I_n-\X(\X\tp\X)^{-1}\X\tp\\
-    \mathcal M_{\X}-\mathcal M_{\X}\tp&=\I_n-\X(\X\tp\X)^{-1}\X\tp-(\I_n-\X(\X\tp\X)^{-1}\X\tp)\tp\\
-    &=\I_n-\X(\X\tp\X)^{-1}\X\tp-\I_n\tp+(\X(\X\tp\X)^{-1}\X\tp)\tp&\text{by Theorem 2(a)}\\
-    &=\I_n-\X(\X\tp\X)^{-1}\X\tp-\I_n+(\X(\X\tp\X)^{-1}\X\tp)\tp&\text{by }\I_n\tp=\I_n\\
-    &=-\X(\X\tp\X)^{-1}\X\tp+(\X(\X\tp\X)^{-1}\X\tp)\tp&\text{by Definition 15}\\
-    &=-\X(\X\tp\X)^{-1}\X\tp+(\X\tp)\tp((\X\tp\X)^{-1})\tp\X\tp&\text{by Theorem 2(c)}\\
-    &=-\X(\X\tp\X)^{-1}\X\tp+\X((\X\tp\X)^{-1})\tp\X\tp&\text{by }(A\tp)\tp=A\\
-    &=-\X(\X\tp\X)^{-1}\X\tp+\X((\X\tp\X)\tp)^{-1}\X\tp&\text{by Theorem 5.3}\\
-    &=-\X(\X\tp\X)^{-1}\X\tp+\X((\X\tp(\X\tp)\tp)\tp)^{-1}\X\tp\\
-    &=-\X(\X\tp\X)^{-1}\X\tp+\X((\X\tp\X)\tp)^{-1}\X\tp\\
-    &=\mathbf0_n
+    \mathcal M_{\X}\tp&=(\I_n-\X(\X\tp\X)^{-1}\X\tp)\tp\\
+    &=\I_n\tp-(\X(\X\tp\X)^{-1}\X\tp)\tp&\text{by the distributive property}\\
+    &=\I_n-(\X\tp)\tp(\X(\X\tp\X)^{-1})\tp&\text{by the reverse-order law and }\I_n\tp=\I_n\\
+    &=\I_n-\X((\X\tp\X)^{-1})\tp\X\tp&\text{by the reverse-order law and }(A\tp)\tp=A\\
+    &=\I_n-\X((\X\tp\X)\tp)^{-1}\X\tp&\text{since the inverse and transpose commute}\\
+    &=\I_n-\X(\X\tp\X)^{-1}\X\tp&\text{by }(\X\tp\X)\tp=\X\tp\X\\
+    &=\mathcal M_{\X}
 \end{align*}
-and the definition of symmetry, the matrix $\mathcal M_{\X}$ is symmetric.
+Because $\mathcal M_{\X}\tp=\mathcal M_{\X}$, the matrix $\mathcal M_{\X}$ is symmetric.
+
 \subsubsection*{Idempotency}
 
 To show that $\mathcal M_{\X}$ is idempotent, write it as a difference of two matrices,
