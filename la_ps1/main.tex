@@ -123,15 +123,26 @@ By the identities
 and the definition of symmetry, the matrix $\mathcal M_{\X}$ is symmetric.
 \subsubsection*{Idempotency}
 
-To show that $\mathcal M_{\X}$ is idempotent, let $\mathbf{A} = \I_n$ and $\mathbf{B} = \X(\X\tp\X)^{-1}\X\tp$, so that $\mathcal M_{\X} = \mathbf{A} - \mathbf{B}$.
-
-$\mathbf{A}^2 = (\I_n)^2 = \I = \mathbf{A}$, 
-
-$\mathbf{A}\mathbf{B} = \I_n\X(\X\tp\X)^{-1}\X\tp= \X(\X\tp\X)^{-1}\X\tp = \mathbf{B}$,
-and $\mathbf{B}^2 = \X(\X\tp\X)^{-1}\X\tp\X(\X\tp\X)^{-1}\X\tp = \X(\X\tp\X)^{-1}\X\tp = \mathbf{B}$.
-
-By the distributive property, $\mathcal M_{\X}^2 = (\mathbf{A} - \mathbf{B})^2 = \mathbf{A}^2 - 2\mathbf{AB} + \mathbf{B}^2 = \mathbf{A} - 2\mathbf{B} + \mathbf{B} = \mathbf{A} - \mathbf{B} = \mathcal M_{\X}$.
-
+To show that $\mathcal M_{\X}$ is idempotent, write it as a difference of two matrices,
+\begin{equation*}
+    \mathcal M_{\X}=\mathbf A-\mathbf B,\qquad\text{where }\mathbf A=\I_n\text{ and }\mathbf B=\X(\X\tp\X)^{-1}\X\tp.
+\end{equation*}
+Each of the four products appearing in $(\mathbf A-\mathbf B)^2$ simplifies:
+\begin{align*}
+    \mathbf A^2&=\I_n\I_n=\I_n=\mathbf A\\
+    \mathbf A\mathbf B&=\I_n\X(\X\tp\X)^{-1}\X\tp=\X(\X\tp\X)^{-1}\X\tp=\mathbf B\\
+    \mathbf B\mathbf A&=\X(\X\tp\X)^{-1}\X\tp\I_n=\X(\X\tp\X)^{-1}\X\tp=\mathbf B\\
+    \mathbf B^2&=\X(\X\tp\X)^{-1}\underbrace{\X\tp\X(\X\tp\X)^{-1}}_{=\,\I}\X\tp=\X(\X\tp\X)^{-1}\X\tp=\mathbf B
+\end{align*}
+Expanding the square and substituting these four results gives
+\begin{align*}
+    \mathcal M_{\X}^2&=(\mathbf A-\mathbf B)^2\\
+    &=\mathbf A^2-\mathbf A\mathbf B-\mathbf B\mathbf A+\mathbf B^2\\
+    &=\mathbf A-\mathbf B-\mathbf B+\mathbf B\\
+    &=\mathbf A-\mathbf B\\
+    &=\mathcal M_{\X}
+\end{align*}
+so $\mathcal M_{\X}$ is idempotent.
 
 \subsection*{Q5}
 The characteristic polynomial is 
