@@ -1,0 +1,17 @@
+{
+  // renv/library symlinks into the package cache, which contains 30+ vignette
+  // .Rnw files. LaTeX Workshop was picking one of those as the root file and
+  // running the "Compile Rnw files" recipe on it instead of la_ps1/main.tex.
+  "latex-workshop.latex.search.rootFiles.exclude": [
+    "**/renv/**",
+    "**/.Rproj.user/**"
+  ],
+  "search.exclude": {
+    "**/renv/library": true,
+    "**/renv/staging": true
+  },
+  "files.watcherExclude": {
+    "**/renv/library/**": true,
+    "**/renv/staging/**": true
+  }
+}
