@@ -1,0 +1,246 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{xcolor}
+\usepackage{parskip}
+
+
+\usepackage{listings}
+\lstdefinestyle{myRstyle}{
+  language=R,
+  basicstyle=\ttfamily\small,
+  commentstyle=\color{gray}\itshape,
+  keywordstyle=\color{blue}\bfseries,
+  stringstyle=\color{orange},
+  numberstyle=\tiny\color{gray},
+  numbers=left,
+  stepnumber=1,
+  frame=single,
+  breaklines=true
+}
+
+%\usepackage{authblk}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\tp}{^{\mathrm T}}
+\DeclareMathOperator{\tr}{tr}
+\author{Da Hoang \\ \texttt{huuda@ucsb.edu}\and Patrick McDonough\\\texttt{pjmcdonough@ucsb.edu}\and Anthony Meena\\\texttt{anthonymeena@ucsb.edu}\and Jordan Wingenroth\\\texttt{jmwingenroth@ucsb.edu}}
+\title{Linear Algebra Problem Set \#1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+%\section{Linear Algebra 1}
+\subsection*{Q1}
+
+\subsubsection*{1(a)}
+\[
+(AB)\tp = \left( \begin{bmatrix} 2 & 0 \\ 3 & 8 \end{bmatrix} \begin{bmatrix} 7 & 2 \\ 6 & 3 \end{bmatrix} \right)\tp
+= \left( \begin{bmatrix} 14+0 & 4+0 \\ 21+48 & 6+24 \end{bmatrix} \right)\tp
+\]
+
+\[
+= \left( \begin{bmatrix} 14 & 4 \\ 69 & 30 \end{bmatrix} \right)\tp
+= \begin{bmatrix} 14 & 69 \\ 4 & 30 \end{bmatrix}
+\]
+
+\[
+B\tp A\tp = \begin{bmatrix} 7 & 2 \\ 6 & 3 \end{bmatrix}\tp \begin{bmatrix} 2 & 0 \\ 3 & 8 \end{bmatrix}\tp
+= \begin{bmatrix} 7 & 6 \\ 2 & 3 \end{bmatrix} \begin{bmatrix} 2 & 3 \\ 0 & 8 \end{bmatrix}
+= \begin{bmatrix} 14+0 & 21+48 \\ 4+0 & 6+24 \end{bmatrix}
+\]
+
+\[
+= \begin{bmatrix} 14 & 69 \\ 4 & 30 \end{bmatrix}
+\]
+
+\textbf{1(b)}
+\[
+(AB)^{-1} = \begin{bmatrix} 14 & 4 \\ 69 & 30 \end{bmatrix}^{-1}
+= \frac{1}{144} \begin{bmatrix} 30 & -4 \\ -69 & 14 \end{bmatrix}
+\]
+
+\[
+B^{-1}A^{-1} = \frac{1}{9} \begin{bmatrix} 3 & -2 \\ -6 & 7 \end{bmatrix} \cdot \frac{1}{16} \begin{bmatrix} 8 & 0 \\ -3 & 2 \end{bmatrix}
+= \frac{1}{144} \begin{bmatrix} 30 & -4 \\ -69 & 14 \end{bmatrix}
+\]
+
+\textbf{1(c)}
+\[
+(A\tp)^{-1} = \left( \begin{bmatrix} 2 & 0 \\ 3 & 8 \end{bmatrix}\tp \right)^{-1}
+= \left( \begin{bmatrix} 2 & 3 \\ 0 & 8 \end{bmatrix} \right)^{-1}
+= \frac{1}{16} \begin{bmatrix} 8 & -3 \\ 0 & 2 \end{bmatrix}
+\]
+
+\[
+(A^{-1})\tp = \left( \begin{bmatrix} 2 & 0 \\ 3 & 8 \end{bmatrix}^{-1} \right)\tp
+= \left( \frac{1}{16} \begin{bmatrix} 8 & 0 \\ -3 & 2 \end{bmatrix} \right)\tp
+= \frac{1}{16} \begin{bmatrix} 8 & -3 \\ 0 & 2 \end{bmatrix}
+\]
+
+
+
+\vfill
+
+\subsection*{Q2}
+This is not the case, in general.
+Consider the counterexample \[\det(\I_{n})+\det(\I_{n})=2\ne 2^n=\det(\I_{n}+\I_{n})\]
+\subsection*{Q3}
+\subsubsection*{3(a)} The Hessian is 
+\[
+ \begin{bmatrix} -2 & 1 \\ 1 & -2 \end{bmatrix}
+\] which has principal minors $-2$ and $3$. Therefore it's negative definite and therefore it's strictly concave.
+
+
+\subsubsection*{3(b)} The Hessian is 
+\[
+ \begin{bmatrix} 6 & -2 & 0 \\  -2 & 4 & 2 \\ 0 & 2 & 2  \end{bmatrix}
+\]
+It's easy enough to see that its first two principal minors are $6$ and $20$. The determinant is $16$.
+Therefore, the matrix is positive definite and the function is strictly convex.
+
+\subsection*{Q4}
+
+\subsubsection*{Symmetry}
+By the identities 
+\begin{align*}
+    \mathcal M_{\X}&=\mathcal I_n-\X(\X\tp\X)^{-1}\X\tp\\
+    \mathcal M_{\X}-\mathcal M_{\X}\tp&=\I_n-\X(\X\tp\X)^{-1}\X\tp-(\I_n-\X(\X\tp\X)^{-1}\X\tp)\tp\\
+    &=\I_n-\X(\X\tp\X)^{-1}\X\tp-\I_n\tp+(\X(\X\tp\X)^{-1}\X\tp)\tp&\text{by Theorem 2(a)}\\
+    &=\I_n-\X(\X\tp\X)^{-1}\X\tp-\I_n+(\X(\X\tp\X)^{-1}\X\tp)\tp&\text{by }\I_n\tp=\I_n\\
+    &=-\X(\X\tp\X)^{-1}\X\tp+(\X(\X\tp\X)^{-1}\X\tp)\tp&\text{by Definition 15}\\
+    &=-\X(\X\tp\X)^{-1}\X\tp+(\X\tp)\tp((\X\tp\X)^{-1})\tp\X\tp&\text{by Theorem 2(c)}\\
+    &=-\X(\X\tp\X)^{-1}\X\tp+\X((\X\tp\X)^{-1})\tp\X\tp&\text{by }(A\tp)\tp=A\\
+    &=-\X(\X\tp\X)^{-1}\X\tp+\X((\X\tp\X)\tp)^{-1}\X\tp&\text{by Theorem 5.3}\\
+    &=-\X(\X\tp\X)^{-1}\X\tp+\X((\X\tp(\X\tp)\tp)\tp)^{-1}\X\tp\\
+    &=-\X(\X\tp\X)^{-1}\X\tp+\X((\X\tp\X)\tp)^{-1}\X\tp\\
+    &=\mathbf0_n
+\end{align*}
+and the definition of symmetry, the matrix $\mathcal M_{\X}$ is symmetric.
+\subsubsection*{Idempotency}
+
+To show that $\mathcal M_{\X}$ is idempotent, let $\mathbf{A} = \I_n$ and $\mathbf{B} = \X(\X\tp\X)^{-1}\X\tp$, so that $\mathcal M_{\X} = \mathbf{A} - \mathbf{B}$.
+
+$\mathbf{A}^2 = (\I_n)^2 = \I = \mathbf{A}$, 
+
+$\mathbf{A}\mathbf{B} = \I_n\X(\X\tp\X)^{-1}\X\tp= \X(\X\tp\X)^{-1}\X\tp = \mathbf{B}$,
+and $\mathbf{B}^2 = \X(\X\tp\X)^{-1}\X\tp\X(\X\tp\X)^{-1}\X\tp = \X(\X\tp\X)^{-1}\X\tp = \mathbf{B}$.
+
+By the distributive property, $\mathcal M_{\X}^2 = (\mathbf{A} - \mathbf{B})^2 = \mathbf{A}^2 - 2\mathbf{AB} + \mathbf{B}^2 = \mathbf{A} - 2\mathbf{B} + \mathbf{B} = \mathbf{A} - \mathbf{B} = \mathcal M_{\X}$.
+
+
+\subsection*{Q5}
+The characteristic polynomial is 
+\begin{align*}
+    (.8-\lambda)(.95-\lambda)-(.05)(.2)&=.76-1.75\lambda+\lambda^2-.01\\
+    &=\lambda^2-1.75\lambda+.75\\
+    &=\frac14(4\lambda^2-7\lambda+3)\\
+    &=\frac14(\lambda-1)(4\lambda-3)
+\end{align*}
+Therefore, the eigenvalues are $\lambda_1=1$ and $\lambda_2=\frac{3}{4}$
+
+For $\lambda_1=1$:
+\begin{align*}
+ (C - \lambda_1 I) u & = 0 \\
+\begin{bmatrix} 0.8-1 & 0.05 \\ 0.2 & 0.95-1 \end{bmatrix} \begin{bmatrix} u_1 \\ u_2 \end{bmatrix} &= 0 \\
+-0.2u_1 + 0.05u_2 &= 0 \\
+u_2 &= 4u_1
+\end{align*}
+Normalizing the vector, we get the eigenvector for $\lambda_1=1$ is: $u = \begin{bmatrix} \dfrac{1}{\sqrt{17}} & \dfrac{4}{\sqrt{17}} \end{bmatrix}$
+
+For $\lambda_2=\frac{3}{4}=0.75$:
+\begin{align*}
+ (C - \lambda_2 I) u & = 0 \\
+\begin{bmatrix} 0.8-0.75 & 0.05 \\ 0.2 & 0.95-0.75 \end{bmatrix}  \begin{bmatrix} u_1 \\ u_2 \end{bmatrix} &= 0 \\
+0.05u_1 + 0.05u_2 &= 0 \\
+u_2 &= -u_1
+\end{align*}
+Normalizing the vector, we get the eigenvector for $\lambda_2=3/4$ is: $u = \begin{bmatrix} \dfrac{1}{\sqrt{2}} & \dfrac{-1}{\sqrt{2}} \end{bmatrix}$
+
+\subsection*{Q6}
+The sum given in (a) is $\mathbf u'(\frac12\Sigma^{-1})\mathbf u$ and the one given in (b) is $\mathbf u'\Lambda\mathbf u$.
+
+\subsection*{Q7}
+The identities given in (a) follow directly from the definition of matrix multiplication.
+
+The identity in (b) results from applying the identities in (a) to the identity $(\X\tp\X)^{-1}X\tp \mathbf y=(\frac1n\X\tp\X)^{-1}\frac1n\X\tp \mathbf y$ which follows from the commutativity and associativity of scalar-matrix multiplication and the identity $(\frac1n\X)^{-1}=n\X^{-1}$ which can be obtained by applying the commutativity and associativity of scalar-matrix multiplication to show that $(\frac1n\X)^{-1}n\X^{-1}=\I$. 
+
+(c) We have:
+\begin{align*}
+    \hat{\beta} & = (X\tp X)^{-1} X\tp Y \\
+    \hat{\beta} & = (X\tp X)^{-1} X\tp (X \beta + u) \\
+    \hat{\beta} & = (X\tp X)^{-1} X\tp X \beta + (X\tp X)^{-1} X\tp u \\
+    \hat{\beta} & = I \beta + (X\tp X)^{-1} X\tp u \\
+    \hat{\beta} - \beta & = (X\tp X)^{-1} X\tp u \\
+    \sqrt{n} (\hat{\beta} - \beta) & = \sqrt{n} (\frac{1}{n} X\tp X)^{-1} (\frac{1}{n} X\tp u) \text{ - this is because } (\frac{1}{n})^{-1} = n
+\end{align*}
+
+We already had that $(X\tp X)^{-1} = (\sum_{i=1}^{n} x_i x_i\tp)^{-1}$, and we also have $X\tp u = \sum_{i=1}^{n} x_i u_i$. Therefore, the formula is proved.
+
+(d) We have that $\hat{u} = \mathcal M_{\X} \ y = \mathcal M_{\X} \ (X\beta + u) = \mathcal M_{\X} X \beta + \mathcal M_{\X} u $.
+
+First, we want to prove that $\mathcal M_{\X} X \beta = 0$.
+\begin{align*}
+    \mathcal M_{\X} X \beta & = [I - X (X\tp X)^{-1} X\tp] X \beta \\
+    \mathcal M_{\X} X \beta & = X \beta - X (X\tp X)^{-1} X\tp X \beta \\
+    \mathcal M_{\X} X \beta & = X \beta - X I \beta \\
+    \mathcal M_{\X} X \beta & = 0
+\end{align*}
+
+Therefore, $\hat{u} = \mathcal M_{\X} X \beta + \mathcal M_{\X} u = \mathcal M_{\X} u $.
+
+Hence, $\sum (\hat{u_i})^2 = \hat{u}\tp \hat{u} = (\mathcal M_{\X} u)\tp (\mathcal M_{\X} u) = u\tp (\mathcal M_{\X})\tp \mathcal M_{\X} u = u\tp \mathcal M_{\X} u $.
+
+The last step is from the fact that $\mathcal M_{\X}$ is symmetric, therefore, ($\mathcal M_{\X})\tp = \mathcal M_{\X}$. $\mathcal M_{\X}$ is also idempotent, so $\mathcal M_{\X} \mathcal M_{\X} = \mathcal M_{\X}$.
+
+\pagebreak
+\subsection*{Q8}
+
+Two functions that satisfy the specifications are below:
+
+
+
+\begin{lstlisting}[style=myRstyle]
+### This function solve a linear system of equations: Ax = b
+# A: nxn square matrix; b: nx1 vector
+# If A is singular, print out "It does not have a unique solution"
+# If A is not singular, output the solution 
+
+MC_solve = function (A, b) {
+  
+  ### Calculate det_A which is the determinant of A
+  #Note: round to 10 decimal place, because even if A is singular, 
+  #det(A) may be a very small number not equal to 0 (because of R's algorithm)
+  det_A = round(det(A), 10)
+  
+  ### Check if det_A is equal to 0, if not, solve the equation
+  if (det_A == 0){
+    print("It does not have a unique solution")
+  } else {
+    solution = solve(A, b)
+    solution
+  }
+}
+
+### For problem (a)
+A1 = matrix(c(1, -2, 1, 0, 2, -8, -4, 5, 9), nrow = 3, byrow = TRUE)
+b1 = c(0, 8, -9)
+
+# Call the function on A1, b1
+MC_solve(A1, b1)
+### Result: (29, 16, 3)
+
+### For problem (b)
+A2 = matrix(c(1, 4, 2, 2, 5, 1, 3, 6, 0), nrow = 3, byrow = TRUE)
+b2 = c(1, -2, 3)
+
+# Call the function on A2, b2
+MC_solve(A2, b2)
+### Result: print "It does not have a unique solution"
+\end{lstlisting}
+
+\end{document}
