@@ -4,9 +4,13 @@
 \usepackage{amssymb}
 \usepackage{cancel}
 
-\title{Analysis PS2}
-\author{Anthony, Jordan, Kemin}
-\date{August 2026}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\tp}{^{\mathrm T}}
+\DeclareMathOperator{\tr}{tr}
+\author{Anthony Meena \\ \texttt{anthonymeena@ucsb.edu}\and Kemin Wang\\\texttt{kemin@ucsb.edu}\and Jordan Wingenroth\\\texttt{jmwingenroth@ucsb.edu}}
+\title{Analysis Problem Set \#2}
+\date{\today}
 
 \begin{document}
 
@@ -14,21 +18,65 @@
 
 \section*{Q1}
 
-\subsection*{Case 1: $x\ge 0, y \ge 0$}
-$||x|-|y|\le |x-y|$\\
-$|x-y|\le |x-y|$
-\subsection*{Case 2: $x<0, y<0$}
-$||x|-|y|\le |x-y||$\\
-$|y-x|\le |x-y|$\\
-$|-(x-y)|\le |x-y|$\\
-$|x - y|\le |x-y|$
-\subsection*{Case 3: $x\ge 0, y<0$}
-$||x|-|y|\le |x-y||$\\
-$|x+y| \le |x-y|$
-\subsection*{Case 4: $x<0, y\ge 0$}
-$||x|-|y|\le |x-y||$\\
-$|-x-y| \le |x-y|$
-\section*{Q2}
+Beginning from the triangle inequality,
+\[
+|x+z|\le |x|+|z| .
+\]
+
+For $z=x-y$, so that $x=y+z$:
+\[
+|x|\le |y|+|x-y|
+\quad\Longrightarrow\quad
+|x|-|y|\le |x-y| .
+\]
+
+Since $x$ and $y$ are arbitrary, interchanging their labels gives
+\[
+|y|-|x|\le |y-x|=|x-y|
+\quad\Longrightarrow\quad
+-|x-y|\le |x|-|y| .
+\]
+
+Taken together,
+\[
+-|x-y|\le |x|-|y|\le |x-y|,
+\]
+which is exactly
+\[
+\big||x|-|y|\big|\le |x-y| . \qquad\blacksquare
+\]
+
+\section*{Q2 (version 1)\footnote{Probably want to choose a version for Q2}}
+
+For $f(x)=e^x$, $f^{(n)}(x)=e^x$. For $a=0$, $e^a=1$.
+
+So the Taylor polynomial ($n=5$) is:
+\[
+1+(1)(x)+\tfrac{1}{2}x^2+\tfrac{1}{6}x^3+\tfrac{1}{24}x^4+\tfrac{1}{120}x^5 .
+\]
+
+At $x=1$, this evaluates to $\approx e$.
+
+For $f(x)=e^x$, $f^{(n)}(x)=e^x$. For $a=0$, $e^a=1$.
+
+So the Taylor polynomial ($n=5$) is:
+\[
+1+(1)(x)+\tfrac{1}{2}x^2+\tfrac{1}{6}x^3+\tfrac{1}{24}x^4+\tfrac{1}{120}x^5 .
+\]
+
+At $x=1$, this evaluates to $\approx e$.
+
+For $f(x)=e^x$, $f^{(n)}(x)=e^x$. For $a=0$, $e^a=1$.
+
+So the Taylor polynomial ($n=5$) is:
+\[
+1+(1)(x)+\tfrac{1}{2}x^2+\tfrac{1}{6}x^3+\tfrac{1}{24}x^4+\tfrac{1}{120}x^5 .
+\]
+
+At $x=1$, this evaluates to $\approx e$.
+
+\section*{Q2 (version 2)}
+
 $T_a(x) = e^a+e^a(x-a)+\frac{e^a}{2!}(x-a)^2+\frac{e^a}{3!}(x-a)^3+\frac{e^a}{4!}(x-a)^4+\frac{e^a}{5!}(x-a)^5$\\
 $T_0(x)=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\frac{x^4}{4!}+\frac{x^5}{5!}$\\
 $T_0(1)=1+1+\frac{1}{2!}+\frac{1}{3!}+\frac{1}{4!}+\frac{1}{5!}$\\
@@ -36,7 +84,10 @@ $T_0(1)=\frac{120+120+60+20+5+1}{120}$\\
 $T_0(1)=\frac{326}{120}$
 
 \section*{Q3}
-$\frac{d\log (x(t))}{dt} = \frac{1}{x}\frac{dx(t)}{dt} = \frac{\frac{dx(t)}{dt}}{x}$
+
+By the chain rule,
+
+$$\frac{d\log (x(t))}{dt} = \frac{1}{x}\frac{dx(t)}{dt} = \frac{\frac{dx(t)}{dt}}{x}$$
 
 \section*{Q4}
 
@@ -88,6 +139,8 @@ $\mathbb{R}^2_{++}$, its domain.
 
 \subsection*{5.1}
 
+
+For any $n$, $I_n$ is an open set. Choose any $x\in (-\frac{1}{n},\frac{1}{n})$. Let $0 < r < \frac{1}{n}$. Then $B(x,r) \subset I_n$.
 \[
 \bigcap_{n=1}^{\infty} I_n=\{0\},
 \]
@@ -107,6 +160,7 @@ $(-\infty,0)\cup(0,\infty)$, which is the union of two open balls and thus an
 open set by way of Theorems 1 and 2.
 
 \subsection*{5.2}
+For any $n$, $I_n$ is a closed set. Choose $x = \frac{1}{n+1} \in I_n$. Then for all $r > 0$, $B(x,r)$ is not a subset of $J_n$\\
 
 For center $x=\tfrac{1}{2}$ and radius $r=\dfrac{n-1}{n+1}$,
 \[
