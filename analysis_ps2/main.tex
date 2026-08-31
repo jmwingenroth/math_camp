@@ -1,0 +1,215 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{cancel}
+
+\title{Analysis PS2}
+\author{Anthony, Jordan, Kemin}
+\date{August 2026}
+
+\begin{document}
+
+\maketitle
+
+\section*{Q1}
+
+\subsection*{Case 1: $x\ge 0, y \ge 0$}
+$||x|-|y|\le |x-y|$\\
+$|x-y|\le |x-y|$
+\subsection*{Case 2: $x<0, y<0$}
+$||x|-|y|\le |x-y||$\\
+$|y-x|\le |x-y|$\\
+$|-(x-y)|\le |x-y|$\\
+$|x - y|\le |x-y|$
+\subsection*{Case 3: $x\ge 0, y<0$}
+$||x|-|y|\le |x-y||$\\
+$|x+y| \le |x-y|$
+\subsection*{Case 4: $x<0, y\ge 0$}
+$||x|-|y|\le |x-y||$\\
+$|-x-y| \le |x-y|$
+\section*{Q2}
+$T_a(x) = e^a+e^a(x-a)+\frac{e^a}{2!}(x-a)^2+\frac{e^a}{3!}(x-a)^3+\frac{e^a}{4!}(x-a)^4+\frac{e^a}{5!}(x-a)^5$\\
+$T_0(x)=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\frac{x^4}{4!}+\frac{x^5}{5!}$\\
+$T_0(1)=1+1+\frac{1}{2!}+\frac{1}{3!}+\frac{1}{4!}+\frac{1}{5!}$\\
+$T_0(1)=\frac{120+120+60+20+5+1}{120}$\\
+$T_0(1)=\frac{326}{120}$
+
+\section*{Q3}
+$\frac{d\log (x(t))}{dt}$\\
+$\frac{1}{x}\frac{dx(t)}{dt}$\\
+$\frac{}{}$
+
+\section*{Q4}
+
+\subsection*{4.1}
+
+\[
+H_f=
+\begin{bmatrix}
+-\dfrac{1}{4}\,x^{-3/2} & 0\\[10pt]
+0 & -\dfrac{1}{4}\,y^{-3/2}
+\end{bmatrix}
+=\frac{1}{4}
+\begin{bmatrix}
+-\dfrac{1}{x^{3/2}} & 0\\[10pt]
+0 & -\dfrac{1}{y^{3/2}}
+\end{bmatrix}
+\]
+
+\[
+|Hf|=\frac{1}{16}\cdot\frac{1}{(xy)^{3/2}}>0
+\]
+
+The Hessian is negative definite, so $f$ is strictly concave over
+$\mathbb{R}^2_{++}$, its domain.
+
+\subsection*{4.2 \quad $g(x,y)=\sqrt{xy}$}
+
+\[
+Hg=
+\begin{bmatrix}
+-\dfrac{\sqrt{y}}{4}\,x^{-3/2} & \dfrac{1}{4\sqrt{xy}}\\[10pt]
+\dfrac{1}{4\sqrt{xy}} & -\dfrac{\sqrt{x}}{4}\,y^{-3/2}
+\end{bmatrix}
+=\frac{1}{4}
+\begin{bmatrix}
+-\dfrac{y^{1/2}}{x^{3/2}} & \dfrac{1}{\sqrt{xy}}\\[10pt]
+\dfrac{1}{\sqrt{xy}} & -\dfrac{x^{1/2}}{y^{3/2}}
+\end{bmatrix}
+\]
+
+\[
+|Hg|=\frac{1}{xy}-\frac{1}{xy}=0
+\]
+
+The Hessian is negative semidefinite, so $g$ is concave but not strictly concave over
+$\mathbb{R}^2_{++}$, its domain.
+
+\section*{Q5}
+
+\subsection*{5.1}
+
+\[
+\bigcap_{n=1}^{\infty} I_n=\{0\},
+\]
+because for any $z\in\mathbb{R}$, $z\neq 0$, there exists $n\in\mathbb{N}$ such
+that
+\[
+d(0,\tfrac{1}{n})<d(0,z)
+\quad\Longleftrightarrow\quad
+\left|\tfrac{1}{n}\right|<|z|
+\quad\Longrightarrow\quad
+z\notin I_n .
+\]
+And $0\in I_n$ because $0<\tfrac{1}{n}$ for every $n\in\mathbb{N}$.
+
+$\{0\}$ is a closed set because it is the complement of
+$(-\infty,0)\cup(0,\infty)$, which is the union of two open balls and thus an
+open set by way of Theorems 1 and 2.
+
+\subsection*{5.2}
+
+For center $x=\tfrac{1}{2}$ and radius $r=\dfrac{n-1}{n+1}$,
+\[
+\left(\tfrac{1}{2}-\tfrac{1}{n+1}=\tfrac{n-1}{n+1}\right)
+\]
+we have $\forall y\in J_n$, $d(x,y)\le r$. Also, the complement of $J_n$ is the
+open set
+\[
+\left(-\infty,\tfrac{1}{n+1}\right)\cup\left(\tfrac{n}{n+1},\infty\right).
+\]
+Taken together, that implies that $J_n$ is a closed ball.
+
+For $\displaystyle\bigcup_{i=1}^{\infty}J_n$:
+
+$0<\dfrac{1}{n+1}$ for any $n$, so for any $u\le 0$,
+$u\notin\displaystyle\bigcup_{i=1}^{\infty}J_n$.
+
+Similarly $1>1-\dfrac{1}{n+1}$ for any $n$, so for any $v\ge 1$,
+$v\notin\displaystyle\bigcup_{i=1}^{\infty}J_n$.
+
+\section*{Q6}
+
+\section*{Q7}
+
+Bordered Hessian:
+\[
+H=
+\begin{bmatrix}
+0 & \alpha AK^{\alpha-1}L^{1-\alpha} & (1-\alpha)AK^{\alpha}L^{-\alpha}\\[4pt]
+\alpha AK^{\alpha-1}L^{1-\alpha} & (\alpha^2-\alpha)AK^{\alpha-2}L^{1-\alpha} & (\alpha-\alpha^2)AK^{\alpha-1}L^{-\alpha}\\[4pt]
+(1-\alpha)AK^{\alpha}L^{-\alpha} & (\alpha-\alpha^2)AK^{\alpha-1}L^{-\alpha} & (\alpha^2-\alpha)AK^{\alpha}L^{-\alpha-1}
+\end{bmatrix}
+\]
+where
+\[
+a=\alpha AK^{\alpha-1}L^{1-\alpha},\qquad
+b=(1-\alpha)AK^{\alpha}L^{-\alpha},\qquad
+c=(\alpha^2-\alpha)AK^{\alpha-2}L^{1-\alpha},
+\]
+\[
+d=(\alpha-\alpha^2)AK^{\alpha-1}L^{-\alpha},\qquad
+e=(\alpha^2-\alpha)AK^{\alpha}L^{-\alpha-1}.
+\]
+
+\subsection*{Leading principal minors}
+
+\[
+|H_2|=-\alpha^2A^2K^{2\alpha-2}L^{2-2\alpha}\le 0
+\qquad\text{for }K,L\ge 0
+\]
+
+\[
+|H_3|=2abd-a^2e-b^2c
+\]
+\[
+=2(\alpha)(1-\alpha)(\alpha-\alpha^2)A^3K^{3\alpha-2}L^{1-3\alpha}
+-(\alpha^4-\alpha^3)A^3K^{3\alpha-2}L^{1-3\alpha}
+\]
+\[
+\qquad-(1-\alpha)^2(\alpha^2-\alpha)A^3K^{3\alpha-2}L^{1-3\alpha},
+\]
+need to show $\ge 0$ for $K,L\ge 0$.
+
+Divide by $(1-\alpha)A^3$:
+\[
+2\alpha^2(1-\alpha)\cancel{K^{3\alpha-2}L^{1-3\alpha}}
+\ \ge\ -\alpha^3\cancel{K^{3\alpha-2}L^{1-3\alpha}}
++(1-\alpha)(\alpha^2-\alpha)\cancel{K^{3\alpha-2}L^{1-3\alpha}}
+\]
+\[
+2\alpha^2\ \ge\ (1-\alpha)(\alpha^2-\alpha)-\alpha^3
+\]
+\[
+2\alpha\ \ge\ (1-\alpha)(\alpha-1)-\alpha^2
+\]
+\[
+2\alpha\ \ge\ -\big((\alpha-1)^2+\alpha^2\big)
+\]
+\[
+2\alpha\ \ge\ -\big(2\alpha^2-2\alpha+1\big)
+\]
+\[
+0\ \ge\ -2\alpha^2-1\quad\checkmark
+\]
+
+
+\section*{Q8}
+
+
+
+\section*{Q9}
+
+\begin{enumerate}
+\item $A$ is bounded, $M=\sqrt{10}$, $\bar{x}=0$.
+
+\item $B$ is not bounded. All $x<0$ are in $B$.
+
+\item $C$ is not bounded. Assuming $\mathbb{R}_+$ means non-negative, all
+$(0,y)$ and $(x,0)$ are in $C$.
+
+\item $D$ is bounded, $M=10$ and $\bar{x}=(0,0)$.
+\end{enumerate}
+
+
+\end{document}
