@@ -3,6 +3,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{cancel}
+\usepackage{enumitem}
+\usepackage{parskip}
 
 \newcommand{\I}{\mathcal{I}}
 \newcommand{\X}{\mathbf{X}}
@@ -18,17 +20,22 @@
 
 \section*{Q1}
 
-Beginning from the triangle inequality,
+Defining $z \in \mathbb{R}$ and beginning from the triangle inequality,
 \[
 |x+z|\le |x|+|z| .
 \]
 
-For $z=x-y$, so that $x=y+z$:
-\[
-|x|\le |y|+|x-y|
-\quad\Longrightarrow\quad
-|x|-|y|\le |x-y| .
-\]
+Fix $z$ so that $z=y-x$ and equivalently $x+z=y$, and apply algebra and properties of absolute value:
+
+$$|y|\le |x|+|y-x|$$
+$$|y|-|x|\le |x-y|$$
+$$||x|-|y|| \ge |x|-|y|\ge -|x-y|$$
+
+
+By the properties of absolute value,
+
+$$\left||y|-|x|\right|\le |x-y| .$$
+
 
 Since $x$ and $y$ are arbitrary, interchanging their labels gives
 \[
@@ -182,6 +189,13 @@ Similarly $1>1-\dfrac{1}{n+1}$ for any $n$, so for any $v\ge 1$,
 $v\notin\displaystyle\bigcup_{i=1}^{\infty}J_n$.
 
 \section*{Q6}
+
+\begin{enumerate}[label=(\arabic*)]
+    \item By definition of homogeneous function of degree one, we have:
+    \[f(\lambda K, \lambda L) = \lambda f(K,L)    
+    \]
+    We then take derivative of lamda on both side
+\end{enumerate}
 
 \section*{Q7}
 
